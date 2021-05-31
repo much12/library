@@ -1,20 +1,19 @@
-package com.much12.citlibrary;
+package com.much12.citlib;
 
 import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 
 public class CitLibrary {
-    public String encryptMD5(String e) {
+    public String encryptMD5(String textoencrypt) {
         try {
             MessageDigest digest = MessageDigest.getInstance("MD5");
-            byte[] b = e.getBytes();
+            byte[] bytes = textoencrypt.getBytes();
 
-            digest.update(b);
-            b = digest.digest();
+            digest.update(bytes);
+            bytes = digest.digest();
 
             StringBuilder stringBuilder = new StringBuilder();
-            for (int i = 0; i < b.length; i++) {
-                String h = Integer.toHexString(0xFF & b[i]);
+            for (int i = 0; i < bytes.length; i++) {
+                String h = Integer.toHexString(0xFF & bytes[i]);
 
                 if (h.length() < 2) {
                     h = "0" + h;
@@ -24,8 +23,8 @@ public class CitLibrary {
             }
 
             return stringBuilder.toString();
-        } catch(NoSuchAlgorithmException ex) {
-            return ex.getMessage();
+        } catch (Exception e) {
+            return e.getMessage();
         }
     }
 }
