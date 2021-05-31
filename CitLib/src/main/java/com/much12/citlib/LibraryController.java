@@ -37,14 +37,6 @@ public class LibraryController {
         }
     }
 
-    public ANRequest.GetRequestBuilder getAndroidNetworking(String url) {
-        return AndroidNetworking.get(url);
-    }
-
-    public ANRequest.PostRequestBuilder postAndroidNetworking(String url) {
-        return AndroidNetworking.post(url);
-    }
-
     public Cartesian generateChart(String title, String yAxisTitle, String xAxisTitle, List<DataEntry> dataEntries) {
         Cartesian cartesian = AnyChart.column();
         Column column = cartesian.column(dataEntries);
