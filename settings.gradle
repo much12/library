@@ -1,0 +1,3 @@
+include ':CitLib'
+include ':app'
+rootProject.name = "Cit Library"
